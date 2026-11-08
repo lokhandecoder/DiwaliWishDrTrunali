@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Cinzel Decorative', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.8));
+  }
+  25% {
+    transform: scale(1.08, 0.96) rotate(1deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(251, 191, 36, 0.95));
+  }
+  50% {
+    transform: scale(0.96, 1.05) rotate(-2deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.75));
+  }
+  75% {
+    transform: scale(1.04, 0.98) rotate(2deg);
+    opacity: 0.98;
+    filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.85));
+  }
+}
+
+.animate-diya-flame {
+  animation: flicker 1.8s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+@keyframes slow-pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.4)) drop-shadow(0 0 50px rgba(217, 119, 6, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 45px rgba(251, 191, 36, 0.7)) drop-shadow(0 0 80px rgba(234, 88, 12, 0.35));
+  }
+}
+
+.glow-diwali-title {
+  animation: slow-pulse-glow 3.5s ease-in-out infinite;
+}
+
+/* Custom scrollbar for sleek dark look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080511;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a1f44;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #44326d;
+}

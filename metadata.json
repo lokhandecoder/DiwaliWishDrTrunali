@@ -1,0 +1,6 @@
+{
+  "name": "Diwali Wishes for Dr. Trunali",
+  "description": "A magical Diwali celebration greeting from Amit to Dr. Trunali with glowing floral sparklers, interactive firecrackers, and heartfelt romantic illumination.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
