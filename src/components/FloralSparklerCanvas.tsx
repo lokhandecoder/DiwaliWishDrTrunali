@@ -467,14 +467,22 @@ export const FloralSparklerCanvas: React.FC<FloralSparklerCanvasProps> = ({
   };
 
   return (
-    <canvas
-      ref={canvasRef}
-      onPointerMove={handlePointerMove}
-      onPointerDown={handlePointerDown}
-      className={`fixed inset-0 pointer-events-auto z-10 transition-opacity duration-700 ${
-        isWandActive ? 'cursor-crosshair' : 'cursor-default'
-      }`}
-      style={{ touchAction: 'none' }}
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        onPointerMove={isWandActive ? handlePointerMove : undefined}
+        onPointerDown={isWandActive ? handlePointerDown : undefined}
+        className={`fixed inset-0 transition-opacity duration-700 ${
+          isWandActive
+            ? 'pointer-events-auto z-25 cursor-crosshair touch-none'
+            : 'pointer-events-none z-10'
+        }`}
+      />
+      {isWandActive && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-30 pointer-events-none bg-amber-500/90 text-stone-950 font-bold text-xs px-4 py-1.5 rounded-full shadow-[0_0_20px_#F59E0B] flex items-center gap-1.5 animate-pulse">
+          <span>✨ Drag your finger to draw sparks</span>
+        </div>
+      )}
+    </>
   );
 };

@@ -33,6 +33,11 @@ export const BombCracker: React.FC<BombCrackerProps> = ({
     setBombState('ignited');
     setCountdown(3);
 
+    // Mobile haptic feedback on touch
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      navigator.vibrate([60, 40, 80]);
+    }
+
     // Play sound of sizzling fuse
     const fuseAudio = soundFx.playFuseSound(3200);
 
@@ -58,8 +63,11 @@ export const BombCracker: React.FC<BombCrackerProps> = ({
         soundFx.playSlowMoTension();
         setCountdown(null);
 
-        // Explode!
+        // Explode with haptic burst!
         setTimeout(() => {
+          if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+            navigator.vibrate([150, 80, 250, 100, 300]);
+          }
           setBombState('exploded');
           onExplode();
         }, 300);

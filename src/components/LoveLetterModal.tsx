@@ -28,17 +28,20 @@ export const LoveLetterModal: React.FC<LoveLetterModalProps> = ({
 
           {/* Letter Container */}
           <motion.div
-            initial={{ scale: 0.85, opacity: 0, y: 30 }}
+            initial={{ scale: 0.9, opacity: 0, y: 30 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 w-full max-w-xl bg-gradient-to-b from-[#241223] via-[#1a0e1c] to-[#120715] rounded-3xl p-6 sm:p-8 border border-amber-400/40 shadow-[0_0_60px_rgba(245,158,11,0.35)] text-amber-50 my-8"
+            className="relative z-10 w-full max-w-xl max-h-[85vh] overflow-y-auto bg-gradient-to-b from-[#241223] via-[#1a0e1c] to-[#120715] rounded-3xl p-5 sm:p-8 border border-amber-400/40 shadow-[0_0_60px_rgba(245,158,11,0.35)] text-amber-50 my-auto pb-safe"
           >
-            {/* Close Button */}
+            {/* iOS Mobile Grab Handle */}
+            <div className="w-12 h-1 bg-amber-400/30 rounded-full mx-auto -mt-1 mb-4 sm:hidden" />
+
+            {/* Close Button with 44px touch target */}
             <button
               onClick={onClose}
-              aria-label="Close Love Letter"
-              className="absolute top-4 right-4 p-2 text-amber-300/70 hover:text-amber-100 hover:bg-white/10 rounded-full transition-colors"
+              aria-label="Close Note"
+              className="absolute top-3 right-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-amber-300/70 hover:text-amber-100 hover:bg-white/10 rounded-full transition-colors active:scale-95"
             >
               <X className="w-5 h-5" />
             </button>

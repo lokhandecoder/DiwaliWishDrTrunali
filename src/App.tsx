@@ -118,16 +118,16 @@ export default function App() {
       ))}
 
       {/* Top Bar Contract (3-Zone Header) */}
-      <header className="relative z-30 flex items-center justify-between gap-8 px-6 py-4 border-b border-amber-900/30 backdrop-blur-md bg-stone-950/40">
+      <header className="sticky top-0 z-30 pt-safe px-4 sm:px-6 pb-3 border-b border-amber-900/40 backdrop-blur-md bg-stone-950/70 flex items-center justify-between gap-4">
         {/* Zone 1: Brand Wordmark */}
         <div className="flex items-center gap-2 whitespace-nowrap shrink-0">
-          <Sparkles className="w-5 h-5 text-amber-400" />
-          <span className="text-base sm:text-lg font-bold font-serif tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-400">
+          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+          <span className="text-sm sm:text-lg font-bold font-serif tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-400">
             Dr. Trunali & Amit
           </span>
         </div>
 
-        {/* Zone 2: Navigation Links */}
+        {/* Zone 2: Navigation Links (Desktop) */}
         <nav className="hidden md:flex items-center gap-6 text-xs uppercase tracking-wider font-medium text-amber-200/80">
           <a
             href="#celebration"
@@ -156,11 +156,11 @@ export default function App() {
         </nav>
 
         {/* Zone 3: Primary Action - Audio & Wand Controls */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={toggleSound}
             aria-label={isMuted ? 'Unmute firecracker audio' : 'Mute firecracker audio'}
-            className="flex items-center gap-2 px-3.5 py-1.5 text-xs font-medium text-amber-200 bg-amber-950/60 border border-amber-500/30 rounded-full hover:bg-amber-900/60 transition-colors whitespace-nowrap shrink-0"
+            className="flex items-center justify-center min-h-[44px] min-w-[44px] gap-2 px-3 py-1.5 text-xs font-medium text-amber-200 bg-amber-950/60 border border-amber-500/30 rounded-full hover:bg-amber-900/60 transition-colors whitespace-nowrap shrink-0 active:scale-95"
           >
             {isMuted ? (
               <>
@@ -178,17 +178,17 @@ export default function App() {
       </header>
 
       {/* Main Content Layout */}
-      <main className="relative z-20 pb-20">
+      <main className="relative z-20 pb-safe-nav md:pb-16">
         {/* HERO SECTION: Happy Diwali + Floral Sparkler Effect */}
         <section
           id="celebration"
-          className="relative max-w-4xl mx-auto px-4 pt-12 sm:pt-16 pb-8 text-center flex flex-col items-center"
+          className="relative max-w-4xl mx-auto px-4 pt-8 sm:pt-16 pb-6 text-center flex flex-col items-center"
         >
           {/* Subtle Royal Garland Kicker */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/50 border border-amber-400/30 text-amber-300 text-xs font-medium backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.25)] mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950/50 border border-amber-400/30 text-amber-300 text-xs font-medium backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.25)] mb-3 sm:mb-4"
           >
             <Flame className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
             <span>Festival of Lights Celebration</span>
@@ -201,7 +201,7 @@ export default function App() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="text-5xl sm:text-7xl md:text-8xl font-black font-display tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-300 to-yellow-500 glow-diwali-title drop-shadow-[0_0_40px_rgba(251,191,36,0.7)]"
+            className="text-4xl sm:text-7xl md:text-8xl font-black font-display tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-300 to-yellow-500 glow-diwali-title drop-shadow-[0_0_40px_rgba(251,191,36,0.7)] leading-[1.1] sm:leading-tight"
           >
             Happy Diwali
           </motion.h1>
@@ -211,27 +211,27 @@ export default function App() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mt-4 flex flex-col items-center"
+            className="mt-3 sm:mt-4 flex flex-col items-center px-2"
           >
-            <div className="inline-flex items-center gap-2 text-xl sm:text-2xl md:text-3xl font-serif text-amber-200">
+            <div className="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-lg sm:text-2xl md:text-3xl font-serif text-amber-200 text-center">
               <span>From Amit to</span>
               <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-200 to-amber-400 underline decoration-amber-400/50 decoration-wavy underline-offset-4">
                 Dr. Trunali
               </span>
-              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 inline" />
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 inline" />
             </div>
 
-            <p className="mt-3 text-sm sm:text-base text-amber-200/80 font-sans max-w-xl text-center leading-relaxed">
+            <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-amber-200/80 font-sans max-w-xl text-center leading-relaxed">
               To the wonderful doctor who heals hearts with her warmth and brings light to everyone.
               May your life sparkle with the same brilliance and radiance you bring to everyone around you.
             </p>
           </motion.div>
 
-          {/* Quick Action Badges */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          {/* Quick Action Badges with 44px touch targets */}
+          <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
             <button
               onClick={() => setIsLetterOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-950/60 hover:bg-amber-900/80 border border-amber-500/40 text-amber-200 text-xs font-medium transition-all shadow-md"
+              className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full bg-amber-950/60 hover:bg-amber-900/80 border border-amber-500/40 text-amber-200 text-xs font-medium transition-all shadow-md active:scale-95"
             >
               <Mail className="w-3.5 h-3.5 text-amber-400" />
               <span>Read Amit&apos;s Note</span>
@@ -239,7 +239,7 @@ export default function App() {
 
             <button
               onClick={handleToggleWand}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-medium transition-all shadow-md ${
+              className={`inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full border text-xs font-medium transition-all shadow-md active:scale-95 ${
                 isWandActive
                   ? 'bg-amber-400 text-stone-950 border-amber-400 font-bold'
                   : 'bg-stone-900/60 hover:bg-stone-800/80 border-amber-500/30 text-amber-200'
@@ -332,7 +332,7 @@ export default function App() {
       />
 
       {/* Footer */}
-      <footer className="relative z-20 border-t border-amber-900/30 py-6 text-center text-xs text-amber-300/60 font-sans bg-stone-950/50">
+      <footer className="relative z-20 border-t border-amber-900/30 py-6 text-center text-xs text-amber-300/60 font-sans bg-stone-950/50 mb-14 md:mb-0">
         <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p>
             Crafted with warm wishes by Amit for Dr. Trunali · Shubh Deepavali
@@ -354,6 +354,70 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Mobile Fixed Bottom Navigation Bar (iPhone 16 Natural Thumb Reach) */}
+      <nav
+        aria-label="Mobile Navigation"
+        className="fixed bottom-0 left-0 right-0 z-35 bg-stone-950/95 backdrop-blur-xl border-t border-amber-500/20 pb-safe md:hidden shadow-[0_-10px_25px_rgba(0,0,0,0.7)]"
+      >
+        <div className="grid grid-cols-4 items-center h-16 px-1">
+          <a
+            href="#bomb"
+            onClick={() => {
+              if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+                navigator.vibrate(30);
+              }
+            }}
+            className="flex flex-col items-center justify-center min-h-[44px] text-amber-300/80 hover:text-amber-200 active:text-amber-100 transition-colors active:scale-95"
+          >
+            <Flame className="w-5 h-5 text-amber-400" />
+            <span className="text-[10px] font-medium tracking-tight mt-1">The Bomb</span>
+          </a>
+
+          <a
+            href="#diyas"
+            onClick={() => {
+              if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+                navigator.vibrate(30);
+              }
+            }}
+            className="flex flex-col items-center justify-center min-h-[44px] text-amber-300/80 hover:text-amber-200 active:text-amber-100 transition-colors active:scale-95"
+          >
+            <Sparkles className="w-5 h-5 text-amber-400" />
+            <span className="text-[10px] font-medium tracking-tight mt-1">Diyas</span>
+          </a>
+
+          <button
+            onClick={() => {
+              if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+                navigator.vibrate(30);
+              }
+              handleToggleWand();
+            }}
+            className={`flex flex-col items-center justify-center min-h-[44px] transition-all active:scale-95 ${
+              isWandActive ? 'text-yellow-300 font-bold' : 'text-amber-300/80 hover:text-amber-200'
+            }`}
+          >
+            <Wand2 className={`w-5 h-5 ${isWandActive ? 'text-yellow-300 animate-pulse' : 'text-amber-400'}`} />
+            <span className="text-[10px] font-medium tracking-tight mt-1">
+              {isWandActive ? 'Wand On' : 'Phuljhadi'}
+            </span>
+          </button>
+
+          <button
+            onClick={() => {
+              if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+                navigator.vibrate(30);
+              }
+              setIsLetterOpen(true);
+            }}
+            className="flex flex-col items-center justify-center min-h-[44px] text-amber-300/80 hover:text-amber-200 active:text-amber-100 transition-colors active:scale-95"
+          >
+            <Mail className="w-5 h-5 text-amber-400" />
+            <span className="text-[10px] font-medium tracking-tight mt-1">Amit&apos;s Note</span>
+          </button>
+        </div>
+      </nav>
     </div>
   );
 }

@@ -49,6 +49,21 @@
   animation: slow-pulse-glow 3.5s ease-in-out infinite;
 }
 
+/* iOS Safe Area & Mobile Ergonomics */
+.pt-safe {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+.pb-safe-nav {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Custom scrollbar for sleek dark look */
 ::-webkit-scrollbar {
   width: 8px;

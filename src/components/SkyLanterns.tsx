@@ -89,7 +89,7 @@ export const SkyLanterns: React.FC = () => {
       ))}
 
       {/* Floating Action Button to Release a Wish Lantern */}
-      <div className="absolute bottom-6 right-6 pointer-events-auto z-30">
+      <div className="absolute bottom-20 md:bottom-6 right-4 sm:right-6 pointer-events-auto z-30">
         <AnimatePresence>
           {showInput ? (
             <motion.form

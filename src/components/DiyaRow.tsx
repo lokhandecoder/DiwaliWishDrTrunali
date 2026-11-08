@@ -44,6 +44,9 @@ export const DiyaRow: React.FC = () => {
 
   const toggleDiya = (id: number) => {
     const isCurrentlyLit = litDiyas.includes(id);
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      navigator.vibrate(40);
+    }
     if (!isCurrentlyLit) {
       soundFx.playDiyaLight(id);
       setLitDiyas((prev) => [...prev, id]);
@@ -57,6 +60,9 @@ export const DiyaRow: React.FC = () => {
   };
 
   const lightAll = () => {
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      navigator.vibrate([40, 30, 60]);
+    }
     soundFx.playDiyaLight(3);
     setLitDiyas([1, 2, 3, 4, 5]);
     setActiveWish({
@@ -67,8 +73,8 @@ export const DiyaRow: React.FC = () => {
   };
 
   return (
-    <section className="relative z-20 max-w-4xl mx-auto px-4 py-8">
-      <div className="text-center mb-6">
+    <section className="relative z-20 max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
+      <div className="text-center mb-5 sm:mb-6">
         <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-400/90">
           <Sparkles className="w-3.5 h-3.5" />
           <span>Interactive Deepotsav</span>
@@ -78,22 +84,21 @@ export const DiyaRow: React.FC = () => {
           Light a Diya for Dr. Trunali
         </h3>
         <p className="text-xs sm:text-sm text-amber-200/70 font-sans mt-1">
-          Click each earthen lamp to ignite its flame and reveal Amit&apos;s special blessing for you
+          Tap each earthen lamp to ignite its flame and reveal Amit&apos;s special blessing
         </p>
       </div>
 
-      {/* Diyas Row */}
-      <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+      {/* Diyas Row - Optimized for iPhone 16 touch width */}
+      <div className="grid grid-cols-5 gap-1.5 sm:gap-6 max-w-xl mx-auto px-1">
         {DIYA_WISHES.map((diya, index) => {
           const isLit = litDiyas.includes(diya.id);
 
           return (
             <motion.div
               key={diya.id}
-              whileHover={{ scale: 1.08, y: -4 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.92 }}
               onClick={() => toggleDiya(diya.id)}
-              className="group cursor-pointer flex flex-col items-center relative"
+              className="group cursor-pointer flex flex-col items-center relative py-1"
             >
               {/* Flame (renders when lit) */}
               <div className="h-12 flex items-end justify-center relative">
